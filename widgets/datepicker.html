@@ -1,0 +1,31 @@
+<p align="center">Datepicker widget will work like shown..<br><br><input type="text" id="bday"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <!-- Add the JQuery UI CSS -->
+  <link href="jquery-ui.min.css" rel="stylesheet">
+ 
+  <!-- Add the JQuery UI JS file -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+$("#bday").datepicker({
+changeMonth: true,
+    // Show year dropdown
+    changeYear: true,
+    dateFormat: "MM dd, yy",
+    // Number of months to display
+    
+    // Define maxDate
+    maxDate: "+3y",
+    // Define minDate
+    minDate: -3650,
+showOn:"focus",
+showAnim:"drop",
+showOptions: { direction: "bottom" },
+showOtherMonths:true,
+showWeek:true,
+});
+
+
+
+</script>
