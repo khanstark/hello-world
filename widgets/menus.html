@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>menu demo</title>
+<p align="center">Menu can be generated as shown below..Please use jquery-ui.min.css file from hello-world folder in link tag below</p><br><br>
+<style>
+.ui-menu {
+width: 200px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <!-- Add the JQuery UI CSS -->
+  <link href="jquery-ui.min.css" rel="stylesheet">
+ 
+  <!-- Add the JQuery UI JS file -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+</head>
+<body>
+<ul id="menu">
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3
+<ul>
+<li>Item 3-1</li>
+<li>Item 3-2</li>
+<li>Item 3-3</li>
+<li>Item 3-4</li>
+<li>Item 3-5</li>
+</ul>
+</li>
+<li>Item 4</li>
+<li>Item 5</li>
+</ul>
+<script>
+$( "#menu" ).menu();
+</script>
+</body>
+</html>
