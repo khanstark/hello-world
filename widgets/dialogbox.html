@@ -1,0 +1,60 @@
+<p align="center">Dialog boxes on the webpage will work resembling this..</p><br><br>
+<div id ="customDialog" title ="Custom Dialog">
+<p align="center">A random dialog box that contains important information regarding some stuff on the webpage..</p>
+</div>
+<p align="center"><a href="JavaScript:void(0)" id="openDialog" title="Open Dialog Box">Open Dialog</a><br /><br /></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <!-- Add the JQuery UI CSS -->
+  <link href="jquery-ui.min.css" rel="stylesheet">
+ 
+  <!-- Add the JQuery UI JS file -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+$('#customDialog').dialog({
+    draggable: true, // Set true by default
+    resizable: false, // Set true by default
+    // You can use minWidth, minHeight, maxWidth, maxHeight
+    height: 300, // Defined in pixels
+    width: 400,
+    // If set true the user can't do anything until the
+    // dialog is closed
+    modal: true,
+    // Position the dialog with my and define the browser
+    // position with at
+    // 1st: left, right, center
+    // 2nd: top, center, bottom
+    position: {
+      my: 'center',
+      at: 'center',
+      // You can also target to place based on an element
+      // on the screen (center under the link)
+      
+    },
+    // Define a delay for showing or hiding it
+    show: "fold",
+    hide:"fold",
+    closeText:"hide",
+    closeOnEscape:false,
+    zIndex:30,
+    autoOpen: false, // Open true by default
+    // create buttons for the dialog
+    buttons : {
+      "OK" : function(){
+        $("#openDialog").html("You clicked ok");
+        $(this).dialog("close");
+      },
+      "CANCEL": function(){
+        $("#openDialog").html("You clicked cancel");
+        $(this).dialog("close");
+      },
+      
+    }
+  });
+ 
+  // Displays the dialog box on click
+  $("#openDialog").click(function() {
+    $('#customDialog').dialog("open");
+  });
+</script>

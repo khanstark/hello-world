@@ -1,0 +1,101 @@
+<p align="center">Drag and drop feature will work as shown below...
+Just drag the image and drop in the container..</p><br> 
+
+<style type="text/css">
+  .highlight { background-color: gray; }
+  
+  #cartDiv{
+    border-style: solid;
+    border-width: 5px;
+height:200px;
+  }
+  </style>
+
+
+<form id="sampForm">
+<div id="cartDiv">
+</div>
+ 
+<img src="https://github.com/khanstark/hello-world/blob/master/logo.png?raw=true" alt="content1" id="toy1" class="toy" height="80" width="120">
+ 
+<img src="https://github.com/khanstark/hello-world/blob/master/logo.png?raw=true" alt="content2" id="toy2" class="toy" height="80" width="120">
+
+<img src="https://github.com/khanstark/hello-world/blob/master/logo.png?raw=true" alt="content3" id="toy3" class="toy" height="80" width="120">
+ 
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <!-- Add the JQuery UI CSS -->
+  <link href="jquery-ui.min.css" rel="stylesheet">
+ 
+  <!-- Add the JQuery UI JS file -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+$("#sampForm").draggable();
+ 
+  // Dragging and dropping elements
+  $("#toy1").draggable();
+  $("#toy2").draggable();
+  $("#toy3").draggable();
+ 
+  $("#cartDiv").droppable({
+    // Adds the class highlight to the droppable
+    activeClass: "highlight",
+ 
+    // Adds class for when element is hovered
+    hoverClass: "hoverDroppable",
+ 
+    // Function to call when element is dropped
+    drop: function(event, ui){
+ 
+      // Apply an effect when an element is dropped
+      // clip, explode, fade, puff,
+      // pulsate, scale, shake, slide,
+      ui.helper.show("clip");
+ 
+      // Get the alt for the itm dropped
+      var itemAlt = $(ui.draggable).attr("alt");
+ 
+      // Display the item dropped
+      alert("Item added : " + itemAlt);
+    },
+ 
+    // Define class of elements that can be dropped
+    accept: ".toy",
+ 
+    // Can elements currently be dropped on it
+    disabled: false,
+ 
+    // Add an element when droppable items starts to drag
+    activate: function(event, ui){
+ 
+      $("#cartMsg").remove();
+      $(this).append("<span id='cartMsg'>Drop Toy Here</span>");
+    },
+ 
+    // Called when an item isn't dropped in the dropzone
+    deactivate: function(event, ui){
+ 
+      $("#cartMsg").remove();
+      $(this).append("<span id='cartMsg'>You know you want it</span>");
+    },
+ 
+    // Called when draggable is over droppable
+    over: function(event, ui){
+ 
+      $("#cartMsg").remove();
+      $(this).append("<span id='cartMsg'>Drop It!!!</span>");
+    },
+ 
+    // Called when item leaves dropzone
+    out: function(event, ui){
+ 
+      $("#cartMsg").remove();
+      $(this).append("<span id='cartMsg'>NOOOOOO!!!</span>");
+    }
+  });
+
+</script>
+
