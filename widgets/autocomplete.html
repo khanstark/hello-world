@@ -1,0 +1,30 @@
+
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>autocomplete demo</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+ 
+  <!-- Add the JQuery UI CSS Download this file from hello-world folder and use it here -->
+  <link href="jquery-ui.min.css" rel="stylesheet">
+ 
+  <!-- Add the JQuery UI JS file -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+<p align="center"><label for="autocomplete">Select a programming language: </label>
+<input id="autocomplete"></p>
+<script>
+var tags = [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ];
+$( "#autocomplete" ).autocomplete({
+source: function( request, response ) {
+var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+response( $.grep( tags, function( item ){
+return matcher.test( item );
+}) );
+}
+});
+</script>
+</body>
+</html>
