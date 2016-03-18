@@ -1,1 +1,1 @@
-conatins images used in the templates.
+conatains images used in the templates.
