@@ -1,3 +1,3 @@
 # hello-world
 def main():
-  print "hello-world!"
+  print "THIS IS SPARTAAA";
