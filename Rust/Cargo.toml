@@ -1,0 +1,15 @@
+[package]
+
+name = "sample_engine"
+version = "0.0.1"
+authors = ["kaif khan <khanstark91@gmail.com>"]
+tags = []
+
+[[bin]]
+
+name = "sample_engine"
+path = "src/main.rs"
+
+[dependencies]
+getopts = "0.2.3"
+image = "0.3.7"
