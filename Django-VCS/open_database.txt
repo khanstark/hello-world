@@ -1,0 +1,4 @@
+python manage.py shell
+from biom.models import sample
+for p in sample.objects.raw('select * from biom_sample'):
+...     print(p.passkey,p.name)

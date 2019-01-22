@@ -1,0 +1,39 @@
+{% load static %}
+	{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'index.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=B612 Mono' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+ {% block body %}
+<div class="bg-image"></div>
+
+<div class="bg-text">
+	<img src="{% static 'admin.ico' %}" width="100" height="100">
+  <h2>[ Admin Panel ]</h2>
+  <h1 style="font-size:50px"></h1>
+  <p>Enter a username and passkey to view images...</p>
+<br>
+
+<form method="POST">
+	{% csrf_token %}
+	<!-- {{form.as_p}} -->
+	{% for field in form %}
+        <label class="{{ field.name }}" for="{{ field.name }}">{{ field.label }}</label>
+        {{ field }}<br><br>
+    {% endfor %}
+	<br>
+	<button type="submit" class="button"><span>View file</span></button>
+</form>
+ {% endblock %}
+
+
+ </body>
+</html>
